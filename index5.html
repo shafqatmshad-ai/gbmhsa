@@ -1,1 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Result System 2026</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+body{
+    font-family: Arial;
+    background:#f3f4f6;
+    text-align:center;
+    margin:0;
+}
+
+/* HEADER */
+.header{
+    background:white;
+    padding:10px;
+    color:black;
+    font-size:22px;
+}
+
+/* TOP MENU */
+.topnav{
+    background:#222;
+    padding:10px;
+}
+
+.topnav a{
+    color:white;
+    text-decoration:none;
+    padding:10px 15px;
+    display:inline-block;
+    border-radius:5px;
+}
+
+.topnav a:hover{
+    background:green;
+}
+
+/* CLASS LINKS */
+.class-box{
+    margin-top:20px;
+}
+
+.class-box a{
+    display:inline-block;
+    padding:10px 15px;
+    margin:5px;
+    background:gray;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+/* DOWNLOAD BUTTON */
+.download-btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 20px;
+    background:blue;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+/* RESULT DESIGN */
+.card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border:2px solid black;
+    background:white;
+    padding:20px;
+    width:90%;
+    margin:auto;
+}
+
+.logo img{ width:120px; }
+
+.info{
+    width:50%;
+    text-align:left;
+    font-size:18px;
+}
+
+.photo img{
+    width:130px;
+    height:150px;
+    border:1px solid black;
+}
+
+table{
+    width:90%;
+    margin:20px auto;
+    border-collapse:collapse;
+    background:white;
+}
+
+th,td{
+    border:2px solid black;
+    padding:8px;
+}
+
+.pass{background:#d4edda;}
+.fail{background:#f8d7da;}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between; line-height: 10px;
+    width:90%;
+    margin:20px auto;
+    border:1px solid black;
+    padding:10px;
+    background:white;height:120px;
+}
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+    width:90%;
+    margin:auto;
+    margin-top:20px;
+    border-top:2px solid black;
+}
+
+/* PRINT SETTINGS */
+@media print{
+    .no-print{
+        display:none;
+    }
+    body{
+        background:white;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ❌ NO PRINT AREA -->
+<div class="no-print">
+
+<div class="header">
+GOVERNMENT BOYS HIGH SCHOOL AWERA BAGH
+</div>
+
+<div class="topnav">
+    <a href="#">Home</a>
+    <a href="#">Download</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+<a href="#">Registration</a>
+</div>
+<div class="class-box">
+
+    <a href="index1.html">Nursery</a>
+    <a href="index2.html">Prep</a>
+    <a href="index3.html">One</a>
+    <a href="index4.html">Two</a>
+    <a href="index5.html">Three</a>
+    <a href="index6.html">Four</a>
+    <a href="index7.html">six</a>
+    <a href="index8.html">Seven</a>
+    
+
+</div>
+<h2>📥 Download Section</h2>
+
+<a class="download-btn" href="docs/Gazette 2026 GOVT BOYS MODEL HIGH SCHOOL AWERA BAGH  - Sheet1 - Copy.pdf">Download Gazette</a>
+
+<br>
+
+<input type="text" id="roll" placeholder="Enter Roll No">
+<button onclick="getResult()">Search</button>
+<button onclick="window.print()">Print</button>
+
+</div>
+
+<h2 class="no-print">Result System 2026</h2>
+
+<div id="result"></div>
+
+<script>
+const API = "https://script.google.com/macros/s/AKfycbx4Q_a_R-oqhFDz7kXfcGtgY45lFlOj7lf7PhxysvDAOl0aPM8Lxp6wguVHJV6t3BVG/exec?roll=";
+
+function getGrade(p){
+    if(p>=80) return "A+";
+    if(p>=70) return "A";
+    if(p>=60) return "B";
+    if(p>=50) return "C";
+    if(p>=40) return "D";
+    return "F";
+}
+
+function status(m,pass){
+    return m>=pass ? "Pass" : "Fail";
+}
+
+async function getResult(){
+let roll = document.getElementById("roll").value;
+
+if(!roll){
+alert("Enter Roll No");
+return;
+}
+
+let res = await fetch(API + roll);
+let data = await res.json();
+
+if(data.error){
+document.getElementById("result").innerHTML = "❌ No Record Found";
+return;
+}
+
+let total = data.total;
+let percent = (total/450)*100;
+
+document.getElementById("result").innerHTML = `
+
+<div class="header">
+<h2>Govt Boys High School Awera Bagh</h2>
+
+<p>Annual Examination 2026</p>
+</div>
+
+<div class="card">
+<div class="logo">
+<img src="https://i.postimg.cc/hQxgrqW0/logo.png">
+</div>
+
+<div class="info">
+<p><b>Name:</b> ${data.name}</p>
+<p><b>Father:</b> ${data.father}</p>
+<p><b>Class:</b> ${data.class}</p>
+<p><b>Roll No:</b> ${data.roll}</p>
+</div>
+
+<div class="photo">
+<img src="${data.photo}">
+</div>
+</div>
+<table>
+<tr>
+<th>#</th><th>Subject</th><th>Total</th><th>Marks</th><th>Grade</th><th>Status</th>
+</tr>
+
+<tr class="${data.english>=40?'pass':'fail'}">
+<td>1</td><td>English</td><td>100</td><td>${data.english}</td><td>${getGrade(data.english)}</td><td>${status(data.english,40)}</td>
+</tr>
+
+<tr class="${data.urdu>=40?'pass':'fail'}">
+<td>2</td><td>Urdu</td><td>100</td><td>${data.urdu}</td><td>${getGrade(data.urdu)}</td><td>${status(data.urdu,40)}</td>
+</tr>
+
+<tr class="${data.math>=40?'pass':'fail'}">
+<td>3</td><td>Math</td><td>100</td><td>${data.math}</td><td>${getGrade(data.math)}</td><td>${status(data.math,40)}</td>
+</tr>
+
+<tr class="${data.islamiat>=20?'pass':'fail'}">
+<td>4</td><td>Islamiat</td><td>50</td><td>${data.islamiat}</td><td>${getGrade(data.islamiat)}</td><td>${status(data.islamiat,20)}</td>
+</tr>
+
+<tr class="${data.gk>=20?'pass':'fail'}">
+<td>5</td><td>General Knowledge</td><td>50</td><td>${data.gk}</td><td>${getGrade(data.gk)}</td><td>${status(data.gk,20)}</td>
+</tr>
+
+<tr class="${data.nazra>=20?'pass':'fail'}">
+<td>6</td><td>Nazra</td><td>50</td><td>${data.nazra}</td><td>${getGrade(data.nazra)}</td><td>${status(data.nazra,20)}</td></tr>
+
+</table>
+
+
+<div class="summary-row">
+<div>
+<p><b>Total:</b> ${total}/450</p>
+<p><b>Percentage:</b> ${percent.toFixed(2)}%</p>
+<p><b>Grade:</b> ${getGrade(percent)}</p>
+<p><b>Status:</b> ${percent>=40?"Pass":"Fail"}</p>
+</div>
+
+<div id="qrcode"></div>
+</div>
+`;
+
+// ✅ QR CODE (IMPORTANT)
+new QRCode(document.getElementById("qrcode"), {
+text: `
+Name: ${data.name}
+Roll: ${data.roll}
+Class: ${data.class}
+Obtained: ${total}
+Total: 450
+Status: ${percent>=40?"Pass":"Fail"}
+`,
+width:120,
+height:120
+});
+
+}
+</script>
+
+<div class="footer">
+<div><img src="https://i.postimg.cc/McctDrt0/file-000000009bb4720881ac3f64217586c2.png" width="120"><br>Controller</div>
+ <div class="center-text">Errors & Omissions<br>Expected</div>
+<div><br><br>_____________________<br> Principal(Sign & Stamp)</div>
+</div>
+
+</body>
+</html>
+
+
 
