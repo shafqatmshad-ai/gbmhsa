@@ -1,1 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Download Section</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f4f4;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:220px;
+    height:100vh;
+    background:#2c3e50;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top:20px;
+    overflow:auto;
+    box-shadow:2px 0 10px rgba(0,0,0,0.2);
+}
+
+/* Sidebar Title */
+
+.sidebar h2{
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
+    font-size:24px;
+}
+
+/* Sidebar Links */
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    font-size:17px;
+    transition:0.3s;
+    border-left:4px solid transparent;
+}
+
+/* Hover */
+
+.sidebar a:hover{
+    background:#4facfe;
+    border-left:4px solid #fff;
+    padding-left:25px;
+}
+
+/* Active */
+
+.sidebar a.active{
+    background:#4facfe;
+    border-left:4px solid white;
+}
+
+/* Main Content */
+
+.main-content{
+    margin-left:220px;
+    width:calc(100% - 220px);
+    padding:30px;
+    box-sizing:border-box;
+}
+
+/* Heading */
+
+.main-content h2{
+    color:#2c3e50;
+}
+
+/* Download Button */
+
+.download-btn{
+    display:inline-block;
+    background:#4facfe;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    background:#2196f3;
+}
+
+/* Class Box */
+
+.class-box{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+/* Class Links */
+
+.class-box a{
+    background:white;
+    padding:15px 25px;
+    text-decoration:none;
+    color:#2c3e50;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.class-box a:hover{
+    background:#4facfe;
+    color:white;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+    .sidebar{
+        width:100%;
+        height:auto;
+        position:relative;
+    }
+
+    .main-content{
+        margin-left:0;
+        width:100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+    <h2>School Portal</h2>
+
+<a href="login.html">🔐 login</a>
+<a href="index.html">🏠 Home</a>
+<a href="index(4).html">ℹ About</a>
+<a href="staff.html">👨‍🏫 Our Staff</a> 
+<a href="index(3).html">📞 Contact</a>
+<a href="index9.html">📝 Registration</a>
+<a href="index(2).html">⬇ Download</a>
+<a href="date-sheet.html">📅Date-sheet</a>
+<a href="gallery.html">🖼Gallery</a>
+</div>
+
+<!-- Main Content -->
+
+<div class="main-content">
+
+    <h2>📥 Download Section</h2>
+
+    <!-- Download File -->
+
+    <a class="download-btn"
+    href="docs/result-2026.pdf"
+    download>
+
+    Download Gazette
+
+    </a>
+
+    <br><br>
+
+    <!-- Class Links -->
+
+    <div class="class-box">
+
+        <a href="index1.html">Nursery</a>
+
+        <a href="index2.html">Prep</a>
+
+        <a href="index3.html">One</a>
+
+        <a href="index4.html">Two</a>
+
+        <a href="index5.html">Three</a>
+
+        <a href="index6.html">Four</a>
+
+        <a href="index7.html">Six</a>
+
+        <a href="index8.html">Seven</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
