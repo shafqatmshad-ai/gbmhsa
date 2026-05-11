@@ -1,1 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Download Section</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f4f4;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:220px;
+    height:100vh;
+    background:#2c3e50;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top:20px;
+    overflow:auto;
+    box-shadow:2px 0 10px rgba(0,0,0,0.2);
+}
+
+/* Sidebar Title */
+
+.sidebar h2{
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
+    font-size:24px;
+}
+
+/* Sidebar Links */
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    font-size:17px;
+    transition:0.3s;
+    border-left:4px solid transparent;
+}
+
+/* Hover */
+
+.sidebar a:hover{
+    background:#4facfe;
+    border-left:4px solid #fff;
+    padding-left:25px;
+}
+
+/* Active */
+
+.sidebar a.active{
+    background:#4facfe;
+    border-left:4px solid white;
+}
+
+/* Main Content */
+
+.main-content{
+    margin-left:220px;
+    width:calc(100% - 220px);
+    padding:30px;
+    box-sizing:border-box;
+}
+
+/* Heading */
+
+.main-content h2{
+    color:#2c3e50;
+}
+
+/* Download Button */
+
+.download-btn{
+    display:inline-block;
+    background:#4facfe;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    background:#2196f3;
+}
+
+/* Class Box */
+
+.class-box{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+/* Class Links */
+
+.class-box a{
+    background:white;
+    padding:15px 25px;
+    text-decoration:none;
+    color:#2c3e50;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.class-box a:hover{
+    background:#4facfe;
+    color:white;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+    .sidebar{
+        width:100%;
+        height:auto;
+        position:relative;
+    }
+
+    .main-content{
+        margin-left:0;
+        width:100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+    <h2>School Portal</h2>
+
+<a href="login.html">🔐 login</a>
+<a href="index.html">🏠 Home</a>
+<a href="index(4).html">ℹ About</a>
+<a href="staff.html">👨‍🏫 Our Staff</a> 
+<a href="index(3).html">📞 Contact</a>
+<a href="index9.html">📝 Registration</a>
+<a href="index(2).html">⬇ Download</a>
+<a href="date-sheet.html">📅Date-sheet</a>
+<a href="gallery.html">🖼Gallery</a>
+ 
+</div>
+
+<!-- Main Content -->
+
+<div class="main-content">
+
+
+<!-- DATE SHEET SECTION -->
+
+<div class="date-sheet">
+
+<h2>📅 Date Sheet 2026</h2>
+
+<table>
+
+<tr>
+    <th>Date</th>
+    <th>Day</th>
+    <th>Subject</th>
+    <th>Time</th>
+</tr>
+
+<tr>
+    <td>10 March 2026</td>
+    <td>Monday</td>
+    <td>English</td>
+    <td>09:00 AM - 12:00 PM</td>
+</tr>
+
+<tr>
+    <td>12 March 2026</td>
+    <td>Wednesday</td>
+    <td>Urdu</td>
+    <td>09:00 AM - 12:00 PM</td>
+</tr>
+
+<tr>
+    <td>14 March 2026</td>
+    <td>Friday</td>
+    <td>Mathematics</td>
+    <td>09:00 AM - 12:00 PM</td>
+</tr>
+
+<tr>
+    <td>16 March 2026</td>
+    <td>Sunday</td>
+    <td>Science</td>
+    <td>09:00 AM - 12:00 PM</td>
+</tr>
+
+<tr>
+    <td>18 March 2026</td>
+    <td>Tuesday</td>
+    <td>Computer</td>
+    <td>09:00 AM - 12:00 PM</td>
+</tr>
+
+</table>
+
+</div></style></div>
+
+</body>
+</html>
