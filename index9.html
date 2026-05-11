@@ -1,1 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Registration Form</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f4f4;
+    font-size:14px;
+    line-height:1.3;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:220px;
+    height:100vh;
+    background:#2c3e50;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top:20px;
+    overflow:auto;
+}
+
+/* Sidebar links */
+
+.sidebar h2{
+    color:white;
+    text-align:center;
+    font-size:22px;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    padding:10px 16px;
+    text-decoration:none;
+}
+
+.sidebar a:hover{
+    background:#4facfe;
+}
+
+/* Main Content */
+
+.main-content{
+    margin-left:220px;
+    padding:8px;
+    box-sizing:border-box;
+}
+
+/* Form Box */
+
+.form-box{
+    background:white;
+    max-width:900px;
+    margin:auto;
+    padding:12px;
+    border-radius:8px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Header */
+
+.header{
+    text-align:center;
+    margin-bottom:8px;
+}
+
+.header img{
+    width:70px;
+}
+
+/* Top Section */
+
+.top-section{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:8px;
+}
+
+/* Photo */
+
+.photo-box{
+    width:80px;
+    height:90px;
+    border:1px solid #ccc;
+}
+
+/* Inputs */
+
+input,
+select{
+    width:100%;
+    padding:7px;
+    margin:4px 0;
+    box-sizing:border-box;
+    font-size:13px;
+}
+
+/* Row */
+
+.row{
+    display:flex;
+    gap:8px;
+}
+
+.row div{
+    flex:1;
+}
+
+/* Rules */
+
+.rules-box{
+    background:#f9f9f9;
+    padding:6px;
+    margin-top:8px;
+    font-size:12px;
+}
+
+.rules-box ul{
+    margin:5px 0;
+    padding-left:18px;
+}
+
+/* Footer */
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+    margin-top:12px;
+    font-size:13px;
+}
+
+/* Buttons */
+
+.btn{
+    padding:8px 16px;
+    margin-top:10px;
+    border:none;
+    background:#4facfe;
+    color:white;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+}
+
+.main-content{
+    margin-left:0;
+}
+
+.row{
+    flex-direction:column;
+}
+
+}
+
+/* PRINT FIX */
+
+@media print{
+
+    @page{
+        size:A4;
+        margin:10mm;
+    }
+
+    body{
+        background:white;
+        font-size:12px;
+    }
+
+    .sidebar{
+        display:none;
+    }
+
+    .main-content{
+        margin-left:0;
+        width:100%;
+        padding:0;
+    }
+
+    .form-box{
+        max-width:100%;
+        box-shadow:none;
+        border:none;
+        padding:5px;
+    }
+
+    .btn{
+        display:none;
+    }
+
+    input,
+    select{
+        padding:5px;
+        margin:2px 0;
+    }
+
+    .rules-box{
+        padding:4px;
+        font-size:11px;
+    }
+
+    .photo-box{
+        width:70px;
+        height:80px;
+    }
+
+    h2,h3{
+        margin:4px 0;
+    }
+
+}
+
+</style></head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<h2>School Portal</h2>
+
+<a href="login.html">🔐 login</a>
+<a href="index.html">🏠 Home</a>
+<a href="index(4).html">ℹ About</a>
+<a href="staff.html">👨‍🏫 Our Staff</a> 
+<a href="index(3).html">📞 Contact</a>
+<a href="index9.html">📝 Registration</a>
+<a href="index(2).html">⬇ Download</a>
+<a href="date-sheet.html">📅Date-sheet</a>
+<a href="gallery.html">🖼Gallery</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+<div class="form-box">
+
+<div class="header">
+<h1>📗Government Boys Model High School Awera Bagh🎓</h1>
+<img src="images/logo.png">
+<h3>Registration Form</h3>
+</div>
+
+<div class="top-section">
+<div><b>Reg No(office use):</b> ________</div>
+<div><b>Session: 2026</b></div>
+<div class="photo-box">
+<img id="preview" width="100%" height="100%">
+</div>
+</div>
+
+<label>Student Name</label>
+<input type="text" id="name">
+
+<label>Father Name</label>
+<input type="text" id="fname">
+
+<label>CNIC</label>
+<input type="text" id="cnic">
+
+<div class="row">
+<div>
+<label>DOB</label>
+<input type="date" id="dob">
+</div>
+
+<div>
+<label>Gender</label>
+<select id="gender">
+<option>Male</option>
+<option>Female</option>
+</select>
+</div>
+</div>
+
+<label>Class</label>
+<select id="class">
+<option>Nursery</option>
+<option>Prep</option>
+<option>One</option>
+<option>Two</option>
+<option>Three</option>
+<option>4th</option>
+<option>5th</option>
+<option>6th</option>
+<option>7th</option>
+<option>8th</option>
+<option>9th</option>
+<option>10th</option>
+</select>
+
+<label>Address</label>
+<input type="text" id="address">
+
+<label>Upload Photo</label>
+<input type="file" id="photo">
+
+<hr>
+
+<div class="rules-box">
+
+<h3>Rules & Instructions</h3>
+
+<ul>
+
+<li>Fill the registration form carefully with correct information.</li>
+
+<li>Incomplete or incorrect forms will not be accepted.</li>
+
+<li>Attach a copy of Form B with the hard copy at submission.</li>
+
+<li>Attach two passport size photographs.</li>
+
+<li>Bring original documents for verification.</li>
+
+<li>Submit before last date.</li>
+
+<li>No changes allowed after submission.</li>
+
+</ul>
+
+</div>
+
+<label>
+
+<input type="checkbox" id="agree">
+
+I agree information is correct
+
+</label>
+
+<div class="footer">
+
+<div>
+__________<br>
+Student Sign
+</div>
+
+<div>
+__________<br>
+Incharge
+</div>
+
+<div>
+__________<br>
+Principal
+</div>
+
+</div>
+
+<br>
+
+<button type="button" class="btn" onclick="submitForm()">
+✅ Submit
+</button>
+
+<button type="button" class="btn" onclick="printForm()">
+🖨 Print Form
+</button>
+
+<script>
+
+// Photo Preview
+
+document.getElementById("photo").addEventListener("change", function(e){
+
+    let file = e.target.files[0];
+
+    if(file){
+
+        let reader = new FileReader();
+
+        reader.onload = function(){
+
+            document.getElementById("preview").src = reader.result;
+
+        }
+
+        reader.readAsDataURL(file);
+
+    }
+
+});
+
+// Submit Function
+
+function submitForm(){
+
+    let agree = document.getElementById("agree");
+
+    if(!agree.checked){
+
+        alert("Please accept declaration first");
+
+        return;
+
+    }
+
+    alert("Form Submitted Successfully ✅");
+
+}
+
+// Print Function
+
+function printForm(){
+
+    window.print();
+
+}
+
+</script>
+
+</div>
+
+</body>
+</html>
