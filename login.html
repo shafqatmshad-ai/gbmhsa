@@ -1,1 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Download Section</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f4f4;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:220px;
+    height:100vh;
+    background:#2c3e50;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top:20px;
+    overflow:auto;
+    box-shadow:2px 0 10px rgba(0,0,0,0.2);
+}
+
+/* Sidebar Title */
+
+.sidebar h2{
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
+    font-size:24px;
+}
+
+/* Sidebar Links */
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    font-size:17px;
+    transition:0.3s;
+    border-left:4px solid transparent;
+}
+
+/* Hover */
+
+.sidebar a:hover{
+    background:#4facfe;
+    border-left:4px solid #fff;
+    padding-left:25px;
+}
+
+/* Active */
+
+.sidebar a.active{
+    background:#4facfe;
+    border-left:4px solid white;
+}
+
+/* Main Content */
+
+.main-content{
+    margin-left:220px;
+    width:calc(100% - 220px);
+    padding:30px;
+    box-sizing:border-box;
+}
+
+/* Heading */
+
+.main-content h2{
+    color:#2c3e50;
+}
+
+/* Download Button */
+
+.download-btn{
+    display:inline-block;
+    background:#4facfe;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    background:#2196f3;
+}
+
+/* Class Box */
+
+.class-box{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+/* Class Links */
+
+.class-box a{
+    background:white;
+    padding:15px 25px;
+    text-decoration:none;
+    color:#2c3e50;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.class-box a:hover{
+    background:#4facfe;
+    color:white;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+    .sidebar{
+        width:100%;
+        height:auto;
+        position:relative;
+    }
+
+    .main-content{
+        margin-left:0;
+        width:100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+    <h2>School Portal</h2>
+
+<a href="login.html">🔐 Login</a>
+<a href="index.html">🏠 Home</a>
+<a href="index(4).html">ℹ About</a>
+<a href="staff.html">👨‍🏫 Our Staff</a> 
+<a href="index(3).html">📞 Contact</a>
+<a href="index9.html">📝 Registration</a>
+<a href="index(2).html">⬇ Download</a>
+<a href="date-sheet.html">📅Date-sheet</a>
+<a href="gallery.html">🖼Gallery</a>
+</div>
+
+<!-- Main Content -->
+
+<div class="main-content">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Login</title>
+
+<style>
+body{
+    font-family: Arial;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.login-box{
+    background:white;
+    padding:35px;
+    width:320px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#4facfe;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+
+    <h2>School Portal Login</h2>
+
+    <input type="email" id="email" placeholder="Enter Email">
+    <input type="password" id="password" placeholder="Enter Password">
+
+    <button onclick="login()">Login</button>
+
+    <p id="msg" style="color:red;"></p>
+
+</div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDG1m_Sw5X_KoNAnSaLFiisXSKIti2z5cg",
+    authDomain: "gbhs-awera.firebaseapp.com",
+    projectId: "gbhs-awera",
+    storageBucket: "gbhs-awera.appspot.com",
+    messagingSenderId: "925668504558",
+    appId: "1:925668504558:web:f01f8b9fa661ece2a3d4ff"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.login = function(){
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        alert("Login Successful");
+        window.location.href = "index.html";
+    })
+    .catch((error) => {
+        document.getElementById("msg").innerText = error.message;
+    });
+
+}
+
+</script></div>
+
+</body>
+</html>
