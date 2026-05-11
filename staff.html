@@ -1,1 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Download Section</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f4f4f4;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:220px;
+    height:100vh;
+    background:#2c3e50;
+    position:fixed;
+    top:0;
+    left:0;
+    padding-top:20px;
+    overflow:auto;
+    box-shadow:2px 0 10px rgba(0,0,0,0.2);
+}
+
+/* Sidebar Title */
+
+.sidebar h2{
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
+    font-size:24px;
+}
+
+/* Sidebar Links */
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px 20px;
+    font-size:17px;
+    transition:0.3s;
+    border-left:4px solid transparent;
+}
+
+/* Hover */
+
+.sidebar a:hover{
+    background:#4facfe;
+    border-left:4px solid #fff;
+    padding-left:25px;
+}
+
+/* Active */
+
+.sidebar a.active{
+    background:#4facfe;
+    border-left:4px solid white;
+}
+
+/* Main Content */
+
+.main-content{
+    margin-left:220px;
+    width:calc(100% - 220px);
+    padding:30px;
+    box-sizing:border-box;
+}
+
+/* Heading */
+
+.main-content h2{
+    color:#2c3e50;
+}
+
+/* Download Button */
+
+.download-btn{
+    display:inline-block;
+    background:#4facfe;
+    color:white;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:8px;
+    font-size:18px;
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    background:#2196f3;
+}
+
+/* Class Box */
+
+.class-box{
+    margin-top:30px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+/* Class Links */
+
+.class-box a{
+    background:white;
+    padding:15px 25px;
+    text-decoration:none;
+    color:#2c3e50;
+    border-radius:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+    font-weight:bold;
+}
+
+.class-box a:hover{
+    background:#4facfe;
+    color:white;
+}
+
+/* Mobile Responsive */
+
+@media(max-width:768px){
+
+    .sidebar{
+        width:100%;
+        height:auto;
+        position:relative;
+    }
+
+    .main-content{
+        margin-left:0;
+        width:100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+    <h2>School Portal</h2>
+
+<a href="login.html">🔐 login</a>
+<a href="index.html">🏠 Home</a>
+<a href="index(4).html">ℹ About</a>
+<a href="staff.html">👨‍🏫 Our Staff</a> 
+<a href="index(3).html">📞 Contact</a>
+<a href="index9.html">📝 Registration</a>
+<a href="index(2).html">⬇ Download</a>
+<a href="date-sheet.html">📅Date-sheet</a>
+<a href="gallery.html">🖼Gallery</a> 
+</div>
+
+<!-- Main Content -->
+
+<div class="main-content">
+
+
+<section class="staff-section">
+    <h2>Our Staff</h2>
+
+    <div class="staff-container">
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 10.12.12 AM.jpeg" alt="Teacher">
+
+            <h3>Mr. Tariq Mehmood khan</h3>
+
+            <p><strong>Qualification:</strong> M.Sc Mathematics B.Ed</p>
+
+            <p><strong>Designation:</strong> Principal</p>
+
+            <p><strong>Experience:</strong> 36 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-10 at 6.40.29 PM.jpeg" alt="Teacher">
+
+            <h3>Mr. Shafqat Mahmood Khan</h3>
+
+            <p><strong>Qualification:</strong> M.Sc Zoology M .Ed Science Education</p>
+
+            <p><strong>Designation:</strong> Senior Teacher Biology</p>
+
+            <p><strong>Experience:</strong> 21 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 10.09.01 AM.jpeg" alt="Teacher">
+
+            <h3>Mr.Abdul Waheed khan</h3>
+
+            <p><strong>Qualification:</strong> M.A Isl,political-Science M.Ed</p>
+
+            <p><strong>Designation:</strong> SST General</p>
+
+            <p><strong>Experience:</strong> 29 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 10.06.10 AM.jpeg" alt="Teacher">
+
+            <h3>Mr. Muhammad Sabeel khan</h3>
+
+            <p><strong>Qualification:</strong> M.A M.Ed</p>
+
+            <p><strong>Designation:</strong>SST General </p>
+
+            <p><strong>Experience:</strong> 30 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/teacher2.jpg" alt="Teacher">
+
+            <h3>Mr. Amjid sharif</h3>
+
+            <p><strong>Qualification:</strong> M.Phil Mathematics, B.Ed</p>
+
+            <p><strong>Designation:</strong> Mathematics Teacher</p>
+
+            <p><strong>Experience:</strong> 7 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 10.37.28 AM.jpeg" alt="Teacher">
+
+            <h3>Mr. Rizwan Sulaiman</h3>
+
+            <p><strong>Qualification:</strong> M.A Isl,Urdu M.Ed</p> 
+   
+            <p><strong>Designation:</strong> EST</p>
+  
+            <p><strong>Experience:</strong> 6 Years</p>
+        </div>
+
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 10.08.32 AM.jpeg" alt="Teacher">
+
+            <h3>Mr.Muhammad Idrees Khan</h3>
+
+            <p><strong>Qualification:</strong> M.A ,M.Ed</p>
+
+            <p><strong>Designation:</strong> EST</p>
+
+            <p><strong>Experience:</strong> 9 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 10.07.14 AM.jpeg" alt="Teacher">
+
+            <h3>Mr. Abdul Wahweed </h3>
+
+            <p><strong>Qualification:</strong> B.A ,B.Ed</p>
+
+            <p><strong>Designation:</strong> P E T</p>
+
+            <p><strong>Experience:</strong> 30 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 12.19.06 PM.jpeg" alt="Teacher">
+
+            <h3>Mr. Nauman Sharif</h3>
+
+            <p><strong>Qualification:</strong> M.Sc Mathematics B.Ed</p>
+
+            <p><strong>Designation:</strong> EST</p>
+
+            <p><strong>Experience:</strong> 7 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 10.20.46 AM.jpeg" alt="Teacher">
+
+            <h3>Mr. Abdul Suddoor Qadir Ratial</h3>
+
+            <p><strong>Qualification:</strong> M.Sc Chemistry,M.A Education</p>
+
+            <p><strong>Designation:</strong> EST</p>
+
+            <p><strong>Experience:</strong> 2 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 10.38.47 AM.jpeg" alt="Teacher">
+
+            <h3>Mr. Shahid Hanif</h3>
+
+            <p><strong>Qualification:</strong> M.A,M.Ed</p>
+
+            <p><strong>Designation:</strong> EST</p>
+
+            <p><strong>Experience:</strong> 10 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 11.33.22 AM.jpeg" alt="Teacher">
+
+            <h3>Mr. Yasir Iqbal</h3>
+
+            <p><strong>Qualification:</strong> M.A ,B.Ed</p>
+
+            <p><strong>Designation:</strong> EST</p>
+
+            <p><strong>Experience:</strong> 7 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 10.06.37 AM.jpeg" alt="Teacher">
+
+            <h3>Mr. Mehmood Sharif</h3>
+
+            <p><strong>Qualification:</strong> M.Com,M.Ed</p>
+
+            <p><strong>Designation:</strong> EST</p>
+
+            <p><strong>Experience:</strong> 5 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 10.28.50 AM.jpeg" alt="Teacher">
+
+            <h3>Mr. Nazim Azam</h3>
+
+            <p><strong>Qualification:</strong> M.A History,Education</p>
+
+            <p><strong>Designation:</strong> EST</p>
+
+            <p><strong>Experience:</strong> 7 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/teacher2.jpg" alt="Teacher">
+
+            <h3>Mr. Imran Shakoor</h3>
+
+            <p><strong>Qualification:</strong> B A</p>
+
+            <p><strong>Designation:</strong> Junior Clerk</p>
+
+            <p><strong>Experience:</strong> 7 Years</p>
+        </div>
+
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 12.20.15 PM.jpeg" alt="Teacher">
+
+            <h3>Mr.Muhammad Tariq Khan</h3>
+
+            <p><strong>Qualification:</strong> Matric</p>
+
+            <p><strong>Designation:</strong> Naib Qasid</p>
+
+            <p><strong>Experience:</strong> 28 Years</p>
+        </div>
+
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/WhatsApp Image 2026-05-11 at 12.20.14 PM.jpeg" alt="Teacher">
+
+            <h3>Mr. Muhammad Zahoor Khan</h3>
+
+            <p><strong>Qualification:</strong> Middle</p>
+
+            <p><strong>Designation:</strong> Naib Qasid</p>
+
+            <p><strong>Experience:</strong> 17 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/teacher3.jpg" alt="Teacher">
+
+            <h3>Mr. Muhammad Shezad Khan</h3>
+
+            <p><strong>Qualification:</strong> Middle</p>
+
+            <p><strong>Designation:</strong> Chokidar</p>
+
+            <p><strong>Experience:</strong> 7 Years</p>
+        </div>
+
+        <!-- Staff Card -->
+        <div class="staff-card">
+            <img src="images/teacher3.jpg" alt="Teacher">
+
+            <h3>Mr. Bilal Hussain</h3>
+
+            <p><strong>Qualification:</strong> B.Ed</p>
+
+            <p><strong>Designation:</strong> Computer Teacher</p>
+
+            <p><strong>Experience:</strong> 5 Years</p>
+        </div>
+
+    </div>
+</section>
+
+<style>
+
+.staff-section{
+    padding:50px 20px;
+    background:#f4f4f4;
+    text-align:center;
+}
+
+.staff-section h2{
+    font-size:35px;
+    margin-bottom:40px;
+    color:#333;
+}
+
+.staff-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+.staff-card{
+    background:white;
+    width:300px;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.staff-card:hover{
+    transform:translateY(-8px);
+}
+
+.staff-card img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+    border:4px solid #4facfe;
+}
+
+.staff-card h3{
+    margin-bottom:10px;
+    color:#222;
+}
+
+.staff-card p{
+    margin:6px 0;
+    color:#555;
+}
+
+</style></div>
+
+</body>
+</html>
