@@ -269,16 +269,23 @@ select{
 </div>
 </div>
 
-<label>Student Name</label>
+<label>Student Name(English)</label>
 <input type="text" id="name">
 
-<label>Father Name</label>
+<label>Student Name (اردو)</label>
+<input type="text" id="name">
+
+<label>Father Name(English)</label>
 <input type="text" id="fname">
+
+<label>Father Name (اردو)</label>
+<input type="text" id="fnameا">
 
 <label>CNIC</label>
 <input type="text" id="cnic">
 
 <div class="row">
+
 <div>
 <label>DOB</label>
 <input type="date" id="dob">
@@ -286,15 +293,20 @@ select{
 
 <div>
 <label>Gender</label>
+
 <select id="gender">
 <option>Male</option>
 <option>Female</option>
 </select>
+
 </div>
+
 </div>
 
 <label>Class</label>
+
 <select id="class">
+
 <option>Nursery</option>
 <option>Prep</option>
 <option>One</option>
@@ -307,6 +319,7 @@ select{
 <option>8th</option>
 <option>9th</option>
 <option>10th</option>
+
 </select>
 
 <label>Address</label>
@@ -342,11 +355,8 @@ select{
 </div>
 
 <label>
-
 <input type="checkbox" id="agree">
-
 I agree information is correct
-
 </label>
 
 <div class="footer">
@@ -380,56 +390,64 @@ Principal
 
 <script>
 
-// Photo Preview
+/* PHOTO PREVIEW */
 
 document.getElementById("photo").addEventListener("change", function(e){
 
-    let file = e.target.files[0];
+let file = e.target.files[0];
 
-    if(file){
+if(file){
 
-        let reader = new FileReader();
+let reader = new FileReader();
 
-        reader.onload = function(){
+reader.onload = function(){
 
-            document.getElementById("preview").src = reader.result;
+document.getElementById("preview").src = reader.result;
 
-        }
+}
 
-        reader.readAsDataURL(file);
+reader.readAsDataURL(file);
 
-    }
+}
 
 });
 
-// Submit Function
-
+// Submit
 function submitForm(){
 
-    let agree = document.getElementById("agree");
+let agree = document.getElementById("agree");
 
-    if(!agree.checked){
+if(!agree.checked){
+    alert("Accept declaration first");
+    return;
+}
 
-        alert("Please accept declaration first");
+let data = {
+name: document.getElementById("name").value,
+fname: document.getElementById("fname").value,
+cnic: document.getElementById("cnic").value,
+dob: document.getElementById("dob").value,
+gender: document.getElementById("gender").value,
+class: document.getElementById("class").value,
+address: document.getElementById("address").value,
+photo: document.getElementById("preview").src
+};
 
-        return;
-
-    }
-
-    alert("Form Submitted Successfully ✅");
+fetch("https://script.google.com/macros/s/AKfycbyHLii8WRwMwC8UZLQrGTO6Uq2FdxjrvpnyK-rhh14I_0_LbzDFJVcmnuRzC6giMFWj/exec", {
+method: "POST",
+body: JSON.stringify(data)
+})
+.then(res => res.text())
+.then(res => alert("Saved ✅"))
+.catch(err => alert("Error ❌"));
 
 }
 
-// Print Function
-
+// Print
 function printForm(){
-
-    window.print();
-
+window.print();
 }
-
 </script>
-
 </div>
 
 </body>
