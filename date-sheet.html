@@ -164,6 +164,45 @@ th, td{
     padding:4px;
 }
 
+}/* PRINT BUTTON */
+
+.print-btn{
+    background:#4facfe;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    margin-bottom:20px;
+}
+
+.print-btn:hover{
+    background:#2196f3;
+}
+
+/* PRINT SETTING */
+
+@media print{
+
+    .sidebar{
+        display:none;
+    }
+
+    .print-btn{
+        display:none;
+    }
+
+    .main-content{
+        margin-left:0;
+        width:100%;
+        padding:0;
+    }
+
+    body{
+        background:white;
+    }
+
 }
 
 
@@ -351,7 +390,19 @@ th, td{
 <p>⭐ Students must reach the examination hall 30 minutes before the paper.</p>
 
 </div>
+<!-- PRINT BUTTON -->
 
+<button class="print-btn" onclick="printDateSheet()">
+🖨 Print Date Sheet
+</button><script>
+
+function printDateSheet(){
+
+    window.print();
+
+}
+
+</script>
 </div>
 
 </div>
