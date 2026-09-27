@@ -1,28 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Result System 2026</title>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<!-- =====================================================
+     QR CODE LIBRARY
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
 
 <style>
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+*{
+    box-sizing:border-box;
+}
+
 body{
-    font-family: Arial;
+    font-family:Arial, sans-serif;
     background:#f3f4f6;
     text-align:center;
     margin:0;
+    color:#111;
 }
 
-/* HEADER */
+
+/* =====================================================
+   HEADER
+===================================================== */
+
 .header{
     background:white;
-    padding:10px;
+    padding:12px;
     color:black;
     font-size:22px;
+    font-weight:bold;
 }
 
-/* TOP MENU */
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
 .topnav{
     background:#222;
     padding:10px;
@@ -40,7 +69,11 @@ body{
     background:green;
 }
 
-/* CLASS LINKS */
+
+/* =====================================================
+   CLASS LINKS
+===================================================== */
+
 .class-box{
     margin-top:20px;
 }
@@ -55,42 +88,140 @@ body{
     border-radius:5px;
 }
 
-/* DOWNLOAD BUTTON */
-.download-btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:10px 20px;
-    background:blue;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
+.class-box a:hover{
+    background:#333;
 }
 
-/* RESULT DESIGN */
+
+/* =====================================================
+   SEARCH AREA
+===================================================== */
+
+.search-area{
+    margin:20px auto;
+    padding:15px;
+}
+
+#roll{
+    padding:11px;
+    width:220px;
+    border:1px solid #777;
+    border-radius:5px;
+    font-size:16px;
+}
+
+.search-area button{
+    padding:11px 18px;
+    margin:5px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    color:white;
+    font-size:15px;
+}
+
+.search-btn{
+    background:green;
+}
+
+.print-btn{
+    background:#333;
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+#result{
+    width:100%;
+}
+
+
+/* =====================================================
+   RESULT HEADER
+===================================================== */
+
+.result-header{
+    width:90%;
+    margin:20px auto 0;
+    background:white;
+    border:2px solid black;
+    padding:10px;
+}
+
+.result-header h2{
+    margin:5px;
+}
+
+.result-header p{
+    margin:5px;
+}
+
+
+/* =====================================================
+   STUDENT CARD
+===================================================== */
+
 .card{
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     border:2px solid black;
+    border-top:none;
+
     background:white;
+
     padding:20px;
+
     width:90%;
+
     margin:auto;
 }
 
-.logo img{ width:120px; }
+
+/* LOGO */
+
+.logo{
+    width:20%;
+}
+
+.logo img{
+    width:120px;
+}
+
+
+/* STUDENT INFO */
 
 .info{
-    width:50%;
+    width:55%;
     text-align:left;
     font-size:18px;
+}
+
+.info p{
+    margin:8px 0;
+}
+
+
+/* PHOTO */
+
+.photo{
+    width:20%;
 }
 
 .photo img{
     width:130px;
     height:150px;
+    object-fit:cover;
     border:1px solid black;
 }
+
+
+/* =====================================================
+   TABLE
+===================================================== */
 
 table{
     width:90%;
@@ -99,211 +230,1339 @@ table{
     background:white;
 }
 
-th,td{
+th,
+td{
     border:2px solid black;
     padding:8px;
 }
 
-.pass{background:#d4edda;}
-.fail{background:#f8d7da;}
+th{
+    background:#e5e7eb;
+}
+
+
+/* PASS / FAIL */
+
+.pass{
+    background:#d4edda;
+}
+
+.fail{
+    background:#f8d7da;
+}
+
+
+/* =====================================================
+   SUMMARY
+===================================================== */
 
 .summary-row{
+
     display:flex;
-    justify-content:space-between; line-height: 10px;
+
+    justify-content:space-between;
+
+    align-items:center;
+
     width:90%;
+
     margin:20px auto;
+
     border:1px solid black;
-    padding:10px;
-    background:white;height:120px;
+
+    padding:15px;
+
+    background:white;
+
+    min-height:150px;
 }
+
+
+.summary-info{
+    text-align:left;
+    line-height:1.5;
+}
+
+.summary-info p{
+    margin:5px 0;
+}
+
+
+/* =====================================================
+   QR CODE
+===================================================== */
+
+.qr-section{
+    width:140px;
+    min-width:140px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#qrcode{
+
+    width:120px;
+    height:120px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 .footer{
+
     display:flex;
+
     justify-content:space-between;
+
+    align-items:center;
+
     width:90%;
-    margin:auto;
-    margin-top:20px;
+
+    margin:20px auto;
+
     border-top:2px solid black;
+
+    padding-top:10px;
+
 }
 
-/* PRINT SETTINGS */
+.footer > div{
+    width:30%;
+}
+
+.center-text{
+    text-align:center;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading{
+
+    padding:30px;
+
+    font-size:22px;
+
+    background:white;
+
+    width:80%;
+
+    margin:20px auto;
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+.error-box{
+
+    padding:30px;
+
+    color:red;
+
+    font-size:20px;
+
+    background:white;
+
+    margin:20px auto;
+
+    width:80%;
+
+    border:1px solid #ddd;
+
+}
+
+
+/* =====================================================
+   PRINT
+===================================================== */
+
 @media print{
+
     .no-print{
-        display:none;
+        display:none !important;
     }
+
     body{
         background:white;
     }
+
+    .result-header,
+    .card,
+    table,
+    .summary-row,
+    .footer{
+
+        width:95%;
+
+    }
+
+    .footer{
+        page-break-inside:avoid;
+    }
+
 }
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .topnav a{
+        padding:8px;
+        font-size:13px;
+    }
+
+
+    .card{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+
+    .logo,
+    .info,
+    .photo{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+
+    .info{
+        text-align:left;
+    }
+
+
+    table{
+
+        width:95%;
+
+        font-size:13px;
+
+    }
+
+
+    th,
+    td{
+
+        padding:5px;
+
+    }
+
+
+    .summary-row{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+
+    .footer{
+
+        flex-direction:column;
+
+        gap:20px;
+
+    }
+
+
+    .footer > div{
+
+        width:100%;
+
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- ❌ NO PRINT AREA -->
+
+<!-- =====================================================
+     TOP / NO PRINT
+===================================================== -->
+
 <div class="no-print">
 
-<div class="header">
-GOVERNMENT BOYS HIGH SCHOOL AWERA BAGH
+
+    <!-- SCHOOL HEADER -->
+
+    <div class="header">
+
+        GOVERNMENT BOYS HIGH SCHOOL AWERA BAGH
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="topnav">
+
+        <a href="login.html">
+            🔐 Login
+        </a>
+
+        <a href="index.html">
+            🏠 Home
+        </a>
+
+        <a href="index(4).html">
+            ℹ About
+        </a>
+
+        <a href="staff.html">
+            👨‍🏫 Our Staff
+        </a>
+
+        <a href="index(3).html">
+            📞 Contact
+        </a>
+
+        <a href="index9.html">
+            📝 Registration
+        </a>
+
+        <a href="index(2).html">
+            ⬇ Download
+        </a>
+
+        <a href="date-sheet.html">
+            📅 Date-sheet
+        </a>
+
+        <a href="gallery.html">
+            🖼 Gallery
+        </a>
+
+    </div>
+
+
+    <!-- CLASS LINKS -->
+
+    <div class="class-box">
+
+        <a href="index1.html">
+            Nursery
+        </a>
+
+        <a href="index2.html">
+            Prep
+        </a>
+
+        <a href="index3.html">
+            One
+        </a>
+
+        <a href="index4.html">
+            Two
+        </a>
+
+        <a href="index5.html">
+            Three
+        </a>
+
+        <a href="index6.html">
+            Four
+        </a>
+
+        <a href="index7.html">
+            Six
+        </a>
+
+        <a href="index8.html">
+            Seven
+        </a>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <h2>
+        📥 Download Section (Marks Sheets)
+    </h2>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-area">
+
+        <input
+            type="text"
+            id="roll"
+            placeholder="Enter Roll No"
+            autocomplete="off"
+        >
+
+
+        <button
+            class="search-btn"
+            onclick="getResult()"
+        >
+            🔍 Search
+        </button>
+
+
+        <button
+            class="print-btn"
+            onclick="window.print()"
+        >
+            🖨 Print
+        </button>
+
+    </div>
+
+
 </div>
 
-<div class="topnav">
-    <a href="login.html">🔐 login</a>
-<a href="index.html">🏠 Home</a>
-<a href="index(4).html">ℹ About</a>
-<a href="staff.html">👨‍🏫 Our Staff</a> 
-<a href="index(3).html">📞 Contact</a>
-<a href="index9.html">📝 Registration</a>
-<a href="index(2).html">⬇ Download</a>
-<a href="date-sheet.html">📅Date-sheet</a>
-<a href="gallery.html">🖼Gallery</a>
-</div>
-<div class="class-box">
 
-    <a href="index1.html">Nursery</a>
-    <a href="index2.html">Prep</a>
-    <a href="index3.html">One</a>
-    <a href="index4.html">Two</a>
-    <a href="index5.html">Three</a>
-    <a href="index6.html">Four</a>
-    <a href="index7.html">six</a>
-    <a href="index8.html">Seven</a>
-    
+<!-- =====================================================
+     RESULT SYSTEM TITLE
+===================================================== -->
 
-</div>
-<h2>📥 Download Section (Marks sheets)</h2>
+<h2 class="no-print">
+
+    Result System 2026
+
+</h2>
 
 
-
-<br>
-
-<input type="text" id="roll" placeholder="Enter Roll No">
-<button onclick="getResult()">Search</button>
-<button onclick="window.print()">Print</button>
-
-</div>
-
-<h2 class="no-print">Result System 2026</h2>
+<!-- =====================================================
+     RESULT OUTPUT
+===================================================== -->
 
 <div id="result"></div>
 
+
 <script>
-const API = "https://script.google.com/macros/s/AKfycbyxMKRGwPAh8rm-1z0fJ_s6oPykxI-0m9EuWLp5nzOaWQVziba2zYDp7S1qlPJ4LKdD/exec?roll=";
 
-function getGrade(p){
-    if(p>=80) return "A+";
-    if(p>=70) return "A";
-    if(p>=60) return "B";
-    if(p>=50) return "C";
-    if(p>=40) return "D";
+
+/* =====================================================
+   GOOGLE APPS SCRIPT API
+===================================================== */
+
+const API =
+"https://script.google.com/macros/s/AKfycbyxMKRGwPAh8rm-1z0fJ_s6oPykxI-0m9EuWLp5nzOaWQVziba2zYDp7S1qlPJ4LKdD/exec?roll=";
+
+
+/* =====================================================
+   GRADE
+===================================================== */
+
+function getGrade(percent){
+
+    percent = Number(percent) || 0;
+
+
+    if(percent >= 80)
+        return "A+";
+
+
+    if(percent >= 70)
+        return "A";
+
+
+    if(percent >= 60)
+        return "B";
+
+
+    if(percent >= 50)
+        return "C";
+
+
+    if(percent >= 40)
+        return "D";
+
+
     return "F";
+
 }
 
-function status(m,pass){
-    return m>=pass ? "Pass" : "Fail";
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+function getStatus(marks, passMarks){
+
+    return Number(marks) >= Number(passMarks)
+        ? "Pass"
+        : "Fail";
+
 }
 
-async function getResult(){
-let roll = document.getElementById("roll").value;
 
-if(!roll){
-alert("Enter Roll No");
-return;
+/* =====================================================
+   NUMBER
+===================================================== */
+
+function num(value){
+
+    const n = Number(value);
+
+    return isNaN(n) ? 0 : n;
+
 }
 
-let res = await fetch(API + roll);
-let data = await res.json();
 
-if(data.error){
-document.getElementById("result").innerHTML = "❌ No Record Found";
-return;
-}
+/* =====================================================
+   GET RESULT
+===================================================== */
 
-let total = data.total;
-let percent = (total/350)*100;
-
-document.getElementById("result").innerHTML = `
-
-<div class="header">
-<h2>Govt Boys High School Awera Bagh</h2>
-
-<p>Annual Examination 2026</p>
-</div>
-
-<div class="card">
-<div class="logo">
-<img src="https://i.postimg.cc/hQxgrqW0/logo.png">
-</div>
-
-<div class="info">
-<p><b>Name:</b> ${data.name}</p>
-<p><b>Father:</b> ${data.father}</p>
-<p><b>Class:</b> ${data.class}</p>
-<p><b>Roll No:</b> ${data.roll}</p>
-</div>
-
-<div class="photo">
-<img src="${data.photo}">
-</div>
-</div>
-<table>
-<tr>
-<th>#</th><th>Subject</th><th>Total</th><th>Marks</th><th>Grade</th><th>Status</th>
-</tr>
-
-<tr class="${data.english>=40?'pass':'fail'}">
-<td>1</td><td>English</td><td>100</td><td>${data.english}</td><td>${getGrade(data.english)}</td><td>${status(data.english,40)}</td>
-</tr>
-
-<tr class="${data.urdu>=40?'pass':'fail'}">
-<td>2</td><td>Urdu</td><td>100</td><td>${data.urdu}</td><td>${getGrade(data.urdu)}</td><td>${status(data.urdu,40)}</td>
-</tr>
-
-<tr class="${data.math>=40?'pass':'fail'}">
-<td>3</td><td>Math</td><td>100</td><td>${data.math}</td><td>${getGrade(data.math)}</td><td>${status(data.math,40)}</td>
-</tr>
-
-<tr class="${data.nazra>=20?'pass':'fail'}">
-<td>4</td><td>Nazra</td><td>50</td><td>${data.nazra}</td><td>${getGrade(data.nazra)}</td><td>${status(data.nazra,20)}</td></tr>
-
-</table>
+function getResult(){
 
 
-<div class="summary-row">
-<div>
-<p><b>Total:</b> ${total}/350</p>
-<p><b>Percentage:</b> ${percent.toFixed(2)}%</p>
-<p><b>Grade:</b> ${getGrade(percent)}</p>
-<p><b>Status:</b> ${percent>=40?"Pass":"Fail"}</p>
-</div>
+    const rollInput =
+        document.getElementById("roll");
 
-<div id="qrcode"></div>
-</div>
-`;
 
-// ✅ QR CODE (IMPORTANT)
-new QRCode(document.getElementById("qrcode"), {
-text: `
-Name: ${data.name}
-Roll: ${data.roll}
-Class: ${data.class}
+    const roll =
+        rollInput.value.trim();
+
+
+    /* EMPTY */
+
+    if(!roll){
+
+        alert("Enter Roll No");
+
+        rollInput.focus();
+
+        return;
+
+    }
+
+
+    const resultBox =
+        document.getElementById("result");
+
+
+    /* LOADING */
+
+    resultBox.innerHTML = `
+
+        <div class="loading">
+
+            ⏳ Loading Result...
+
+        </div>
+
+    `;
+
+
+    /* CALLBACK */
+
+    const callbackName =
+        "resultCallback_" + Date.now();
+
+
+    const timeoutName =
+        callbackName + "_timeout";
+
+
+    /* =================================================
+       JSONP CALLBACK
+    ================================================= */
+
+    window[callbackName] =
+        function(data){
+
+
+            /* CLEAR TIMEOUT */
+
+            clearTimeout(
+                window[timeoutName]
+            );
+
+
+            /* DELETE CALLBACK */
+
+            delete window[callbackName];
+
+
+            console.log(
+                "RESULT API:",
+                data
+            );
+
+
+            /* ERROR */
+
+            if(!data || data.error){
+
+                resultBox.innerHTML = `
+
+                    <div class="error-box">
+
+                        ❌ ${
+                            data && data.error
+                            ? data.error
+                            : "Result Not Found"
+                        }
+
+                    </div>
+
+                `;
+
+                return;
+
+            }
+
+
+            /* =================================================
+               STUDENT INFORMATION
+            ================================================= */
+
+            const name =
+                data.name || "-";
+
+
+            const father =
+                data.father || "-";
+
+
+            const studentClass =
+                data.class || "-";
+
+
+            const studentRoll =
+                data.roll || roll;
+
+
+            const position =
+                data.position || "-";
+
+
+            const photo =
+                data.photo ||
+                "https://via.placeholder.com/130x150?text=Photo";
+
+
+            /* =================================================
+               MARKS
+            ================================================= */
+
+            const english =
+                num(data.english);
+
+
+            const urdu =
+                num(data.urdu);
+
+
+            const math =
+                num(data.math);
+
+
+            const nazra =
+                num(data.nazra);
+
+
+            /* =================================================
+               TOTAL
+            ================================================= */
+
+            const total =
+                data.total !== undefined
+                ? num(data.total)
+                : english + urdu + math + nazra;
+
+
+            /* =================================================
+               MAXIMUM
+            ================================================= */
+
+            const maximum = 350;
+
+
+            /* =================================================
+               PERCENTAGE
+            ================================================= */
+
+            const percent =
+                data.percentage !== undefined
+                ? num(data.percentage)
+                : (total / maximum) * 100;
+
+
+            /* =================================================
+               GRADE
+            ================================================= */
+
+            const grade =
+                data.grade || getGrade(percent);
+
+
+            /* =================================================
+               OVERALL STATUS
+            ================================================= */
+
+            const overallStatus =
+                percent >= 40
+                ? "Pass"
+                : "Fail";
+
+
+            /* =================================================
+               RESULT HTML
+            ================================================= */
+
+            resultBox.innerHTML = `
+
+
+                <!-- RESULT HEADER -->
+
+                <div class="result-header">
+
+                    <h2>
+
+                        Govt Boys High School Awera Bagh
+
+                    </h2>
+
+
+                    <p>
+
+                        Annual Examination 2026
+
+                    </p>
+
+                </div>
+
+
+                <!-- STUDENT CARD -->
+
+                <div class="card">
+
+
+                    <!-- LOGO -->
+
+                    <div class="logo">
+
+                        <img
+                            src="https://i.postimg.cc/hQxgrqW0/logo.png"
+                            alt="School Logo"
+                        >
+
+                    </div>
+
+
+                    <!-- INFORMATION -->
+
+                    <div class="info">
+
+                        <p>
+
+                            <b>Name:</b>
+                            ${name}
+
+                        </p>
+
+
+                        <p>
+
+                            <b>Father:</b>
+                            ${father}
+
+                        </p>
+
+
+                        <p>
+
+                            <b>Class:</b>
+                            ${studentClass}
+
+                        </p>
+
+
+                        <p>
+
+                            <b>Roll No:</b>
+                            ${studentRoll}
+
+                        </p>
+
+
+                        <p>
+
+                            <b>Position:</b>
+                            ${position}
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- PHOTO -->
+
+                    <div class="photo">
+
+                        <img
+                            src="${photo}"
+                            alt="Student Photo"
+                            onerror="this.src='https://via.placeholder.com/130x150?text=Photo'"
+                        >
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     MARKS TABLE
+                ================================================= -->
+
+                <table>
+
+
+                    <tr>
+
+                        <th>#</th>
+
+                        <th>Subject</th>
+
+                        <th>Total</th>
+
+                        <th>Marks</th>
+
+                        <th>Grade</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+
+                    <!-- ENGLISH -->
+
+                    <tr class="${
+                        english >= 40
+                        ? "pass"
+                        : "fail"
+                    }">
+
+                        <td>1</td>
+
+                        <td>English</td>
+
+                        <td>100</td>
+
+                        <td>${english}</td>
+
+                        <td>
+                            ${getGrade(english)}
+                        </td>
+
+                        <td>
+                            ${getStatus(english,40)}
+                        </td>
+
+                    </tr>
+
+
+                    <!-- URDU -->
+
+                    <tr class="${
+                        urdu >= 40
+                        ? "pass"
+                        : "fail"
+                    }">
+
+                        <td>2</td>
+
+                        <td>Urdu</td>
+
+                        <td>100</td>
+
+                        <td>${urdu}</td>
+
+                        <td>
+                            ${getGrade(urdu)}
+                        </td>
+
+                        <td>
+                            ${getStatus(urdu,40)}
+                        </td>
+
+                    </tr>
+
+
+                    <!-- MATH -->
+
+                    <tr class="${
+                        math >= 40
+                        ? "pass"
+                        : "fail"
+                    }">
+
+                        <td>3</td>
+
+                        <td>Math</td>
+
+                        <td>100</td>
+
+                        <td>${math}</td>
+
+                        <td>
+                            ${getGrade(math)}
+                        </td>
+
+                        <td>
+                            ${getStatus(math,40)}
+                        </td>
+
+                    </tr>
+
+
+                    <!-- NAZRA -->
+
+                    <tr class="${
+                        nazra >= 20
+                        ? "pass"
+                        : "fail"
+                    }">
+
+                        <td>4</td>
+
+                        <td>Nazra</td>
+
+                        <td>50</td>
+
+                        <td>${nazra}</td>
+
+                        <td>
+
+                            ${
+                                getGrade(
+                                    (nazra / 50) * 100
+                                )
+                            }
+
+                        </td>
+
+                        <td>
+
+                            ${getStatus(nazra,20)}
+
+                        </td>
+
+                    </tr>
+
+
+                    <!-- TOTAL -->
+
+                    <tr>
+
+                        <th colspan="2">
+
+                            Total
+
+                        </th>
+
+
+                        <th>
+
+                            ${maximum}
+
+                        </th>
+
+
+                        <th>
+
+                            ${total}
+
+                        </th>
+
+
+                        <th>
+
+                            ${grade}
+
+                        </th>
+
+
+                        <th>
+
+                            ${overallStatus}
+
+                        </th>
+
+                    </tr>
+
+
+                </table>
+
+
+                <!-- =================================================
+                     SUMMARY + QR
+                ================================================= -->
+
+                <div class="summary-row">
+
+
+                    <!-- SUMMARY -->
+
+                    <div class="summary-info">
+
+
+                        <p>
+
+                            <b>Total:</b>
+
+                            ${total}/${maximum}
+
+                        </p>
+
+
+                        <p>
+
+                            <b>Percentage:</b>
+
+                            ${percent.toFixed(2)}%
+
+                        </p>
+
+
+                        <p>
+
+                            <b>Grade:</b>
+
+                            ${grade}
+
+                        </p>
+
+
+                        <p>
+
+                            <b>Position:</b>
+
+                            ${position}
+
+                        </p>
+
+
+                        <p>
+
+                            <b>Status:</b>
+
+                            ${overallStatus}
+
+                        </p>
+
+
+                    </div>
+
+
+                    <!-- QR -->
+
+                    <div class="qr-section">
+
+                        <div id="qrcode"></div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================================
+                     FOOTER
+                ================================================= -->
+
+                <div class="footer">
+
+
+                    <!-- CONTROLLER -->
+
+                    <div>
+
+                        <img
+                            src="https://i.postimg.cc/McctDrt0/file-000000009bb4720881ac3f64217586c2.png"
+                            width="120"
+                            alt="Controller"
+                        >
+
+                        <br>
+
+                        Controller
+
+                    </div>
+
+
+                    <!-- ERRORS -->
+
+                    <div class="center-text">
+
+                        Errors & Omissions
+
+                        <br>
+
+                        Expected
+
+                    </div>
+
+
+                    <!-- PRINCIPAL -->
+
+                    <div>
+
+                        _____________________
+
+                        <br>
+
+                        Principal
+
+                        <br>
+
+                        Sign & Stamp
+
+                    </div>
+
+
+                </div>
+
+
+            `;
+
+
+            /* =================================================
+               QR CODE
+            ================================================= */
+
+            const qrBox =
+                document.getElementById("qrcode");
+
+
+            if(qrBox){
+
+
+                qrBox.innerHTML = "";
+
+
+                const qrText =
+
+`Government Boys High School Awera Bagh
+Annual Examination 2026
+
+Name: ${name}
+Father: ${father}
+Class: ${studentClass}
+Roll No: ${studentRoll}
+
 Obtained: ${total}
-Total: 350
-Status: ${percent>=40?"Pass":"Fail"}
-`,
-width:120,
-height:120
-});
+Total: ${maximum}
+Percentage: ${percent.toFixed(2)}%
+Grade: ${grade}
+Position: ${position}
+Status: ${overallStatus}`;
+
+
+                /* CHECK QR LIBRARY */
+
+                if(typeof QRCode !== "undefined"){
+
+
+                    new QRCode(
+
+                        qrBox,
+
+                        {
+
+                            text:qrText,
+
+                            width:120,
+
+                            height:120,
+
+                            correctLevel:
+                                QRCode.CorrectLevel.M
+
+                        }
+
+                    );
+
+
+                    console.log(
+                        "QR CODE CREATED"
+                    );
+
+
+                }else{
+
+
+                    qrBox.innerHTML = `
+
+                        <div style="
+                            width:120px;
+                            height:120px;
+                            border:2px solid red;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            font-size:11px;
+                            color:red;
+                            text-align:center;
+                        ">
+
+                            QR Library
+                            <br>
+                            Not Loaded
+
+                        </div>
+
+                    `;
+
+
+                    console.error(
+                        "QRCode library not loaded"
+                    );
+
+                }
+
+            }
+
+
+        };
+
+
+    /* =================================================
+       TIMEOUT
+    ================================================= */
+
+    window[timeoutName] =
+        setTimeout(function(){
+
+
+            delete window[callbackName];
+
+
+            resultBox.innerHTML = `
+
+                <div class="error-box">
+
+                    ❌ API response timeout
+
+                    <br><br>
+
+                    Please check Roll No
+                    and try again.
+
+                </div>
+
+            `;
+
+
+        },15000);
+
+
+    /* =================================================
+       JSONP SCRIPT
+    ================================================= */
+
+    const script =
+        document.createElement("script");
+
+
+    script.src =
+        API +
+        encodeURIComponent(roll) +
+        "&callback=" +
+        callbackName;
+
+
+    /* =================================================
+       API CONNECTION ERROR
+    ================================================= */
+
+    script.onerror =
+        function(){
+
+
+            clearTimeout(
+                window[timeoutName]
+            );
+
+
+            delete window[callbackName];
+
+
+            resultBox.innerHTML = `
+
+                <div class="error-box">
+
+                    ❌ Unable to connect
+                    to Result API.
+
+                    <br><br>
+
+                    Please try again.
+
+                </div>
+
+            `;
+
+        };
+
+
+    /* ADD SCRIPT */
+
+    document.body.appendChild(script);
+
 
 }
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+document
+    .getElementById("roll")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+
+                getResult();
+
+            }
+
+        }
+    );
+
 </script>
 
-<div class="footer">
-<div><img src="https://i.postimg.cc/McctDrt0/file-000000009bb4720881ac3f64217586c2.png" width="120"><br>Controller</div>
- <div class="center-text">Errors & Omissions<br>Expected</div>
-<div><br><br>_____________________<br> Principal(Sign & Stamp)</div>
-</div>
 
 </body>
-</html>
 
+</html>
